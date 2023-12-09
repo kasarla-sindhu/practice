@@ -54,7 +54,7 @@ const convert = (theMovie) => {
   return {
     movieId: theMovie.movie_id,
     directorId: theMovie.director_id,
-    movieName: theMovie.director_name,
+    movieName: theMovie.movie_name,
     leadActor: theMovie.lead_actor,
   };
 };
@@ -69,7 +69,7 @@ app.get("/movies/:movieId/", async (request, response) => {
   response.send(convert(movieObj));
 });
 
-app.put("/movies/:movieId", async (request, response) => {
+app.put("/movies/:movieId/", async (request, response) => {
   const { movieId } = request.params;
   const putDetails = request.body;
   const { directorId, movieName, leadActor } = putDetails;
